@@ -24,23 +24,105 @@ jobs:
 
       - name: Install and build
         run: |
-          echo "Checking for package.json..."
-          if [ ! -f package.json ]; then
-            echo "ERROR: package.json not found in repository root. Remove Node build steps or add package.json." >&2
-            ls -la
-            exit 1
+          set -euo pipefail
+          echo "WORKDIR: $(pwd)"
+
+          # Helper to consolidate any output dir into ./build
+          consolidate_to_build() {
+            rm -rf ./build
+            mkdir -p ./build
+            src="$1"
+            if [ -d "$src" ]; then
+              echo "Copying $src -> ./build"
+              cp -a "$src"/. ./build/ || true
+            fi
+          }
+
+          # 1) Node 项目（根目录有 package.json）
+          if [ -f package.json ]; then
+            echo "Detected Node project (package.json present)."
+            if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+              echo "Using npm ci (lockfile present)"
+              npm ci
+            else
+              echo "No lockfile found — using npm install (consider committing package-lock.json for reproducible builds)"
+              npm install
+            fi
+
+            echo "Running npm run build..."
+            npm run build || true
+
+            # common output places for Node builds
+            if [ -d ./build ]; then
+              echo "Found ./build after Node build."
+            elif [ -d ./dist ]; then
+              consolidate_to_build ./dist
+            elif [ -d ./public ]; then
+              consolidate_to_build ./public
+            fi
+
+            if [ -d ./build ]; then
+              echo "Final build is in ./build"
+              ls -la ./build || true
+              exit 0
+            fi
           fi
 
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
-            echo "Using npm ci (lockfile present)"
-            npm ci
-          else
-            echo "No lockfile found — falling back to npm install (consider committing package-lock.json for reproducible builds)"
-            npm install
+          # 2) Jekyll 网站（有 _config.yml 或 index.md）
+          if [ -f _config.yml ] || [ -f index.md ] || [ -d _posts ]; then
+            echo "Detected Jekyll site. Will build with Jekyll."
+
+            # install ruby & jekyll if not present
+            sudo apt-get update -y
+            sudo apt-get install -y ruby-full build-essential zlib1g-dev
+            export GEM_HOME="$HOME/gems"
+            export PATH="$HOME/gems/bin:$PATH"
+            gem install bundler jekyll --no-document || true
+
+            if [ -f Gemfile ]; then
+              bundle config set --local path 'vendor/bundle'
+              bundle install --jobs 4 || true
+              bundle exec jekyll build -d ./_site || true
+            else
+              jekyll build -d ./_site || true
+            fi
+
+            if [ -d ./_site ]; then
+              consolidate_to_build ./_site
+              echo "Jekyll build -> ./build ready."
+              ls -la ./build || true
+              exit 0
+            fi
           fi
 
-          npm run build   # 请根据你的项目替换为实际 build 命令
-          # 假定输出目录是 ./build ，若你的输出是 ./dist 或 ./public 请相应修改下面的 path
+          # 3) 已存在静态输出（无需构建）
+          if [ -d ./build ]; then
+            echo "Found existing ./build directory. Using it directly."
+            ls -la ./build || true
+            exit 0
+          fi
+          if [ -d ./dist ]; then
+            consolidate_to_build ./dist
+            echo "Using ./dist copied to ./build"
+            ls -la ./build || true
+            exit 0
+          fi
+          if [ -d ./public ]; then
+            consolidate_to_build ./public
+            echo "Using ./public copied to ./build"
+            ls -la ./build || true
+            exit 0
+          fi
+
+          # 4) 没有检测到任何可构建或可上传的内容：失败并给出建议
+          echo "ERROR: No build configuration or output detected."
+          echo "Repository root does not contain package.json (Node), _config.yml (Jekyll), nor an existing ./build ./dist ./public directory."
+          echo "Possible fixes:"
+          echo "  - If this is a Node site, add package.json to repo root (and package-lock.json for npm ci), or adjust the workflow to cd into the subdirectory containing them."
+          echo "  - If this is a Jekyll site, enable GitHub Pages built-in builder or add a Gemfile and let this workflow run jekyll build;"
+          echo "  - If this repository already contains static site HTML, ensure those files are in ./build, ./dist or ./public."
+          ls -la
+          exit 1
 
       - name: Debug build output
         run: |
@@ -51,10 +133,10 @@ jobs:
           npm --version || true
           echo "---- ls -la (root) ----"
           ls -la
-          echo "---- ls -la build/dist/public ----"
-          ls -la ./build || ls -la ./dist || ls -la ./public || true
-          echo "---- head index.html ----"
-          head -n 20 ./build/index.html || head -n 20 ./dist/index.html || head -n 20 ./public/index.html || true
+          echo "---- ls -la build ----"
+          ls -la ./build || true
+          echo "---- sample index (if any) ----"
+          head -n 20 ./build/index.html || true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -62,7 +144,7 @@ jobs:
           path: ./build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2
 
       - name: Poll Pages deployment status (diagnostic, optional)
         env:
