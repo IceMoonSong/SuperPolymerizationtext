@@ -4,4 +4,4 @@
 也是我的家——我的心血
 
 详情页：
-https://icemoonsong.github.io/SuperPolymerizationtext/
+🌐[《超融合！三部曲》](https://icemoonsong.github.io/SuperPolymerizationtext/)
