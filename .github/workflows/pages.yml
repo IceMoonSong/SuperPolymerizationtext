@@ -40,12 +40,12 @@ jobs:
           head -n 20 ./build/index.html || true
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: ./build    # <-- 确认这里和上面实际输出目录一致（./dist 或 ./build）
+          path: ./build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
 
       - name: Poll Pages deployment status (diagnostic, optional)
         env:
