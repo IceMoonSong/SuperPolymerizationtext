@@ -20,24 +20,41 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '18'
 
       - name: Install and build
         run: |
-          npm ci
+          echo "Checking for package.json..."
+          if [ ! -f package.json ]; then
+            echo "ERROR: package.json not found in repository root. Remove Node build steps or add package.json." >&2
+            ls -la
+            exit 1
+          fi
+
+          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+            echo "Using npm ci (lockfile present)"
+            npm ci
+          else
+            echo "No lockfile found — falling back to npm install (consider committing package-lock.json for reproducible builds)"
+            npm install
+          fi
+
           npm run build   # 请根据你的项目替换为实际 build 命令
-          # 假定输出目录是 ./build ，若你的输出是 ./dist 请相应修改下面的 path
+          # 假定输出目录是 ./build ，若你的输出是 ./dist 或 ./public 请相应修改下面的 path
 
       - name: Debug build output
         run: |
           echo "---- pwd ----"
           pwd
+          echo "---- node & npm versions ----"
+          node --version || true
+          npm --version || true
           echo "---- ls -la (root) ----"
           ls -la
-          echo "---- ls -la build ----"
-          ls -la ./build || true
+          echo "---- ls -la build/dist/public ----"
+          ls -la ./build || ls -la ./dist || ls -la ./public || true
           echo "---- head index.html ----"
-          head -n 20 ./build/index.html || true
+          head -n 20 ./build/index.html || head -n 20 ./dist/index.html || head -n 20 ./public/index.html || true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
