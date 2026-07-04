@@ -1,6 +1,6 @@
 title: 超融合——我的电子墓碑
 description: 超融合·三部曲设定集
-theme: jekyll-theme-primer
+
 remote_theme: pages-themes/minima
 plugins:
   - jekyll-remote-theme
