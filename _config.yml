@@ -1,3 +1,6 @@
 title: 小说电子墓碑
 description: 超融合 · 三部曲设定集
 theme: jekyll-theme-primer
+remote_theme: pages-themes/primer@v0.2.0
+plugins:
+  - jekyll-remote-theme
