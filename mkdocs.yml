@@ -1,0 +1,131 @@
+site_name: 超融合——我的电子墓碑
+site_description: 超融合·三部曲设定集
+site_author: SuperPolymerizationtext
+
+# GitHub 仓库信息
+repo_name: SuperPolymerizationtext/SuperPolymerizationtext
+repo_url: https://github.com/SuperPolymerizationtext/SuperPolymerizationtext
+
+# 使用 Material for MkDocs 主题（Wiki 风格）
+theme:
+  name: material
+  language: zh
+  palette:
+    # 浅色模式
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    # 深色模式
+    - scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs           # 顶部导航标签
+    - navigation.tabs.sticky    # 标签页固定
+    - navigation.sections       # 侧边栏分组
+    - navigation.expand         # 默认展开所有目录
+    - navigation.indexes        # 允许目录有索引页
+    - navigation.top            # 返回顶部按钮
+    - search.suggest            # 搜索建议
+    - search.highlight          # 搜索高亮
+    - content.action.edit       # 编辑按钮
+    - content.action.view       # 查看源文件
+    - content.code.copy         # 代码复制按钮
+    - content.tooltips          # 工具提示
+
+# 启用搜索功能
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+# Markdown 扩展
+markdown_extensions:
+  - admonition                  # 提示框
+  - attr_list                   # 属性列表
+  - def_list                    # 定义列表
+  - footnotes                   # 脚注
+  - meta                        # Meta 数据
+  - md_in_html                  # HTML 中的 Markdown
+  - toc:
+      permalink: true           # 标题锚点
+      permalink_title: 跳转到此标题
+  - pymdownx.arithmatex:        # 数学公式
+      generic: true
+  - pymdownx.betterem:          # 更好的强调
+  - pymdownx.caret:             # 上标
+  - pymdownx.details:           # 可折叠详情
+  - pymdownx.emoji:             # Emoji 支持
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:         # 代码高亮
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite:      # 行内代码高亮
+  - pymdownx.keys:              # 键盘按键样式
+  - pymdownx.magiclink:         # 自动链接
+  - pymdownx.mark:              # 高亮标记
+  - pymdownx.smartsymbols:      # 智能符号
+  - pymdownx.snippets:          # 代码片段
+  - pymdownx.superfences:       # 高级代码块
+  - pymdownx.tabbed:            # 标签页
+      alternate_style: true
+  - pymdownx.tasklist:          # 任务列表
+      custom_checkbox: true
+  - pymdownx.tilde:             # 删除线
+
+# 自定义 CSS
+extra_css:
+  - stylesheets/extra.css
+
+# 页面导航结构
+nav:
+  - 首页: index.md
+  - 第一部：星海余晖:
+    - 概述: 01-星海余晖/README.md
+    - 角色:
+      - 零亚娜: 01-星海余晖/角色/零亚娜.md
+      - 露世芽樱: 01-星海余晖/角色/露世芽樱.md
+      - 昔雅: 01-星海余晖/角色/昔雅.md
+      - 七劫千秋: 01-星海余晖/角色/七劫千秋.md
+      - 维尔妮娅: 01-星海余晖/角色/维尔妮娅.md
+      - 阿希亚: 01-星海余晖/角色/阿希亚.md
+      - 娑: 01-星海余晖/角色/娑.md
+      - 梅比兰德: 01-星海余晖/角色/梅比兰德.md
+      - 凯文: 01-星海余晖/角色/凯文.md
+      - 符仪华: 01-星海余晖/角色/符仪华.md
+      - 忌克斯: 01-星海余晖/角色/忌克斯.md
+      - 格蕾薇娅: 01-星海余晖/角色/格蕾薇娅.md
+      - 伊琳娜: 01-星海余晖/角色/伊琳娜.md
+      - 帕琦娜: 01-星海余晖/角色/帕琦娜.md
+  - 第二部：过往未来:
+    - 概述: 02-过往未来/README.md
+    - 角色:
+      - 乔伊·弗罗斯特: 02-过往未来/角色/乔伊·弗罗斯特.md
+      - 戴尔·蓉莉·李 (Zone): 02-过往未来/角色/戴尔·蓉莉·李(Zone).md
+      - 森口智子: 02-过往未来/角色/森口智子.md
+      - 钟悚灵: 02-过往未来/角色/钟悚灵.md
+      - 阳蒿六水: 02-过往未来/角色/阳蒿六水.md
+      - 温劫: 02-过往未来/角色/温劫.md
+  - 第三部：异次元之融合:
+    - 概述: 03-异次元之融合/README.md
+    - 角色:
+      - 无月游穹: 03-异次元之融合/角色/无月游穹.md
+      - 无月临光 (乔光凝): 03-异次元之融合/角色/无月临光(乔光凝).md
+      - 蒙星: 03-异次元之融合/角色/蒙星.md
+      - 孔天谋: 03-异次元之融合/角色/孔天谋.md
+      - 石早月: 03-异次元之融合/角色/石早月.md
+      - 森口智子: 03-异次元之融合/角色/森口智子.md
+      - 乔伊·弗罗斯特 (婉冬): 03-异次元之融合/角色/乔伊·弗罗斯特2.md
+      - XCIX: 03-异次元之融合/角色/XCIX.md
+  - 世界观设定:
+    - 超格式塔: 设定集/超格式塔.md
