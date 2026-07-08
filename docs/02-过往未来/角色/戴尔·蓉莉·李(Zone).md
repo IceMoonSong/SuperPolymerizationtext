@@ -15,11 +15,15 @@
       <tr><td style="padding: 4px 8px; font-weight: bold;">人格类型</td><td style="padding: 4px 8px;">INFJ（提倡者）</td></tr>
     </table>
   </div>
-  
+  <div style="flex: 0 0 300px;">
+    <img src="../../../picture/Zone.jpg" alt="戴尔·蓉莉·李" style="width: 100%; height: auto; border-radius: 8px;">
+  </div>
+</div>
+
+
+<br clear="all">
 
 ---
-
-
 
 ## 性格
 
