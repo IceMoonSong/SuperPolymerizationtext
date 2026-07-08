@@ -18,8 +18,7 @@
 </div>
 
 
-
-<br>
+<br clear="all">
 
 ---
 
