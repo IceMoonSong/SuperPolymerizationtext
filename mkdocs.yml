@@ -87,9 +87,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
-# 额外文件（确保图片目录被复制）
-extra_files:
-  - doc/picture/
+
 
 # 页面导航结构
 nav:
