@@ -2,7 +2,7 @@
 
 **Dell Rolly Lee**
 
->  Zone
+>  [Zone](戴尔·蓉莉·李(Zone).md)
 
 <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
   <div style="flex: 1; min-width: 250px;">
@@ -11,7 +11,7 @@
       <tr><td style="padding: 4px 8px; font-weight: bold;">身份</td><td style="padding: 4px 8px;">世界蛇实验室负责人 · 未来组导师 · 能源科学家</td></tr>
       <tr><td style="padding: 4px 8px; font-weight: bold;">身高</td><td style="padding: 4px 8px;">172cm</td></tr>
       <tr><td style="padding: 4px 8px; font-weight: bold;">外貌</td><td style="padding: 4px 8px;">金发，绿色眼眸，体型匀称</td></tr>
-      <tr><td style="padding: 4px 8px; font-weight: bold;">别名</td><td style="padding: 4px 8px;">Zone（网名／后期常用名），蓉莉（简称）</td></tr>
+      <tr><td style="padding: 4px 8px; font-weight: bold;">别名</td><td style="padding: 4px 8px;">[Zone](戴尔·蓉莉·李(Zone).md)（网名／后期常用名），蓉莉（简称）</td></tr>
       <tr><td style="padding: 4px 8px; font-weight: bold;">卡组</td><td style="padding: 4px 8px;">「时械神」</td></tr>
       <tr><td style="padding: 4px 8px; font-weight: bold;">人格类型</td><td style="padding: 4px 8px;">INFJ（提倡者）</td></tr>
     </table>
@@ -48,7 +48,7 @@
 
 - 过人的学习天赋和共情能力
 - 顶尖的理论物理学家和能源科学家
-- 教育能力强，能够发现并培养出钟悚灵、阳蒿六水、温劫这样的关键人才，为未来播下火种
+- 教育能力强，能够发现并培养出[钟悚灵](钟悚灵.md)、[阳蒿六水](../../03-异次元之融合/角色/阳蒿六水.md)、[温劫](温劫.md)这样的关键人才，为未来播下火种
 - 知识储备涵盖能源科学、理论物理、教育学、历史学
 
 ---
@@ -67,8 +67,8 @@
 
 - **外婆：梅·博拉**——精神导师。她的逝去是蓉莉一生的转折点，也是她所有选择的原点
 - **父母：林奈·梅（母）、瓦尔特·李（父）**——家庭背景稳定，但外婆才是她真正的塑造者
-- **[乔伊·弗罗斯特](乔伊·弗罗斯特.md)**：同一代的天才，相见恨晚而短暂的盟友，最终分道扬镳。两人之间最可惜的只有信念不可调和——乔伊的“为终点可以牺牲一切”与她的“道路本身必须光明”
-- **学生团队（阳蒿六水、钟悚灵、温劫等）**：理想的继承者和最坚实的后盾。她用教育在乔伊的逻辑体系之外播下了另一批种子
+- **[乔伊·弗罗斯特](乔伊·弗罗斯特.md)**：同一代的天才，相见恨晚而短暂的盟友，最终分道扬镳。两人之间最可惜的只有信念不可调和——[乔伊](../../03-异次元之融合/角色/乔伊·弗罗斯特2.md)的“为终点可以牺牲一切”与她的“道路本身必须光明”
+- **学生团队（[阳蒿六水](../../03-异次元之融合/角色/阳蒿六水.md)、[钟悚灵](钟悚灵.md)、[温劫](温劫.md)等）**：理想的继承者和最坚实的后盾。她用教育在乔伊的逻辑体系之外播下了另一批种子
 - **敌人**：并非某个具体的人，而是“导致悲剧的系统本身”——不安全的魂炉技术、以及乔伊那种“牺牲少数”的冷酷逻辑
 
 ---
