@@ -2033,25 +2033,24 @@
   body {
     background-image: url('../../../picture/乔伊.jpg');
     background-size: cover;
-    background-position: center 25%;
+    background-position: center 0%;
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
 
   .markdown-body {
-    background: rgba(255, 255, 255, 0.92);
-    padding: 2.5rem 3rem;
+    background: rgba(255, 255, 255, 0.95); /* 从 0.88 提高到 0.95，几乎不透明 */
+    padding: 2rem 3rem;
     border-radius: 16px;
     max-width: 1000px;
     margin: 2rem auto;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
-    color: #1a1a2e;
+    /* 增加文字阴影作为备选，让文字更突出 */
+    color: #222;
   }
 
-  .markdown-body h1,
-  .markdown-body h2,
-  .markdown-body h3 {
-    color: #0d0d0d;
+  /* 如果还想进一步优化，可以给内容区增加边框或阴影 */
+  .markdown-body {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   }
 </style>
 
