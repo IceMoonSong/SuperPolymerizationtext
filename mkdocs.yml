@@ -6,6 +6,9 @@ site_author: SuperPolymerizationtext
 repo_name: SuperPolymerizationtext/SuperPolymerizationtext
 repo_url: https://github.com/SuperPolymerizationtext/SuperPolymerizationtext
 
+# GitHub Pages 基础 URL（重要！）
+base_url: /SuperPolymerizationtext/
+
 # 使用 Material for MkDocs 主题（Wiki 风格）
 theme:
   name: material
