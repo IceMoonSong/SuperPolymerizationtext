@@ -15,7 +15,7 @@
       <tr><td style="padding: 4px 8px; font-weight: bold;">人格类型</td><td style="padding: 4px 8px;">INFJ（提倡者）</td></tr>
     </table>
   </div>
-  
+</div>
 
 ---
 
